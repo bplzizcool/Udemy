@@ -15,6 +15,8 @@ const toDo = [{
     complete: false
 }]
 
+// testing
+
 // Return only the items that have not been completed
 const getThingsToDo = toDo.filter(function(todo) {
     return !todo.complete
