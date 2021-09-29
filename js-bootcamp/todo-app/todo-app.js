@@ -15,6 +15,7 @@ const todos = [{
     complete: false
 }]
 
+// Section end Challenge
 // 1. Setup a div contain for todos - Done
 // 2. Setup filters (searchText) and wire up a new filter input to change it
 const filters = {
@@ -49,19 +50,35 @@ renderTodos(todos, filters)
 
 
 // Listen for new todo creation when button is clicked
-document.querySelector('#add-todo').addEventListener('click', function(e) {
-    // e.target.textContent = 'Adding new todo...'
-    console.log('Adding new todo...')
-})
+// document.querySelector('#add-todo').addEventListener('click', function(e) {
+//     e.target.textContent = 'Adding new todo...'
+//     console.log('Adding new todo...')
+// })
 
 // New listener for todo input field text change
-document.querySelector('#new-todo-text').addEventListener('input', function(e) {
-    console.log(e.target.value)
-})
+// document.querySelector('#new-todo-text').addEventListener('input', function(e) {
+//     console.log(e.target.value)
+// })
 
+// Final challenge
+// Respond to every key stroke when searching
 document.querySelector('#search-text').addEventListener('input', function(e) {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
+})
+
+// Setup submit handler and clear the default action
+document.querySelector('#new-todo').addEventListener('submit', function(e) {
+    // Clearing input when submitted
+    e.preventDefault()
+        // Push data onto our todo array
+    todos.push({
+            text: e.target.elements.text.value,
+            complete: false
+        })
+        // Render new todo elements and clear field 
+    renderTodos(todos, filters)
+    e.target.elements.text.value = ''
 })
 
 // Remove all paragraphs with 'the' in them

@@ -45,11 +45,11 @@ document.querySelector('#create-note').addEventListener('click', function(e) {
     e.target.textContent = 'The button was clicked'
 })
 
-document.querySelector('#remove-all').addEventListener('click', function() {
-    document.querySelectorAll('.note').forEach(function(note) {
-        note.remove()
-    })
-})
+// document.querySelector('#remove-all').addEventListener('click', function() {
+//     document.querySelectorAll('.note').forEach(function(note) {
+//         note.remove()
+//     })
+// })
 
 // Targeting an input field 
 // on 'change' will output when focus is off of field
@@ -58,6 +58,16 @@ document.querySelector('#remove-all').addEventListener('click', function() {
 document.querySelector('#search-text').addEventListener('input', function(e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+})
+
+// Add event listener for name-form
+document.querySelector('#name-form').addEventListener('submit', function(e) {
+    // On form submission, prevent page from showing with an updated URL
+    e.preventDefault()
+        // Access data by name and display it
+    console.log(e.target.elements.firstName.value)
+        // Access data then wipe it in input field
+    e.target.elements.firstName.value = ''
 })
 
 // -- Single --
